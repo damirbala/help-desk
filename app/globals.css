@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Replace the existing CSS variables with Notion-inspired colors */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 11%;
+
+    /* Notion blue as primary */
+    --primary: 214 84% 51%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 97%;
+    --secondary-foreground: 0 0% 11%;
+
+    --muted: 0 0% 97%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 214 84% 51%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 214 84% 51%;
+
+    --radius: 0.25rem;
+  }
+
+  .dark {
+    --background: 0 0% 11%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 13%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 13%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 214 84% 51%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 16%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 16%;
+    --muted-foreground: 0 0% 63%;
+
+    --accent: 214 84% 51%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 214 84% 51%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* Notion uses Inter font */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif,
+      "Segoe UI Emoji", "Segoe UI Symbol";
+    letter-spacing: -0.011em;
+    font-weight: 400;
+  }
+}
+
+/* Notion-like scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(55, 53, 47, 0.16);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(55, 53, 47, 0.26);
+}
+
+/* TipTap Editor Styles */
+.ProseMirror {
+  min-height: 200px;
+  padding: 0.5rem;
+  outline: none;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  color: #adb5bd;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+.ProseMirror p {
+  margin-bottom: 0.5rem;
+}
+
+.ProseMirror h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.ProseMirror h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.ProseMirror h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.ProseMirror ul,
+.ProseMirror ol {
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.ProseMirror ul {
+  list-style-type: disc;
+}
+
+.ProseMirror ol {
+  list-style-type: decimal;
+}
+
+.ProseMirror blockquote {
+  border-left: 3px solid #e9ecef;
+  padding-left: 1rem;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+}
+
+.ProseMirror img {
+  max-width: 100%;
+  height: auto;
+}
+
+.ProseMirror a {
+  color: #2383e2;
+  text-decoration: underline;
+}

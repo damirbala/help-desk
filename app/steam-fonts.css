@@ -1,0 +1,16 @@
+/* Steam-like font */
+@font-face {
+  font-family: "Motiva Sans";
+  src: url("https://store.cloudflare.steamstatic.com/public/shared/fonts/MotivaSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Motiva Sans";
+  src: url("https://store.cloudflare.steamstatic.com/public/shared/fonts/MotivaSans-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
