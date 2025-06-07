@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Plus, Search } from "lucide-react"
+import { Plus, Search, HelpCircle, Bell, LogOut } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -12,53 +12,59 @@ export function AppHeader() {
 
   return (
     <>
-      <header className="bg-white border-b border-[#EBEBEA] p-2 flex items-center">
-        <button className="p-2 text-[#37352F] hover:bg-[#F7F7F7] rounded">
-          <div className="flex flex-col gap-1">
-            <div className="w-5 h-0.5 bg-[#37352F]"></div>
-            <div className="w-5 h-0.5 bg-[#37352F]"></div>
-            <div className="w-5 h-0.5 bg-[#37352F]"></div>
-          </div>
-        </button>
-
-        <Button
-          className="ml-4 bg-[#2383E2] hover:bg-[#1B76D4] text-white flex items-center gap-1 rounded"
-          onClick={() => setIsNewTicketDialogOpen(true)}
-        >
-          <Plus className="w-4 h-4" />
-          Новая заявка
-        </Button>
-
-        <div className="ml-auto flex items-center gap-4">
-          <div className="flex items-center gap-1 text-[#6B6B6B]">
-            <div className="w-5 h-5 bg-[#F7F7F7] rounded flex items-center justify-center">
-              <span className="text-xs">0</span>
+      {/* Updated Header Structure - User to verify against assets/desktop/app_header/header.png */}
+      <header className="bg-white border-b border-gray-200 px-4 py-3 flex items-center justify-between h-16">
+        {/* Left Section: Menu and "Новая заявка" Button */}
+        <div className="flex items-center space-x-3">
+          <button className="p-2 text-gray-600 hover:bg-gray-100 rounded-md">
+            <div className="flex flex-col gap-1">
+              <div className="w-5 h-0.5 bg-gray-700"></div>
+              <div className="w-5 h-0.5 bg-gray-700"></div>
+              <div className="w-5 h-0.5 bg-gray-700"></div>
             </div>
-            События (0/0)
-          </div>
+          </button>
+          <Button
+            variant="default"
+            size="sm"
+            className="bg-blue-600 hover:bg-blue-700 text-white flex items-center"
+            onClick={() => setIsNewTicketDialogOpen(true)}
+          >
+            <Plus className="w-4 h-4 mr-2" />
+            Новая заявка
+          </Button>
+        </div>
 
-          <div className="flex items-center gap-1 text-[#6B6B6B]">
-            <div className="w-5 h-5 bg-[#F7F7F7] rounded flex items-center justify-center">
-              <span className="text-xs">0</span>
-            </div>
-            Новости Okdesk
-          </div>
-
-          <div className="relative">
-            <Search className="w-4 h-4 absolute left-3 top-2.5 text-[#6B6B6B]" />
+        {/* Center Section: Search Input */}
+        <div className="flex-1 flex justify-center px-4 lg:px-8"> {/* Added lg:px-8 for more space on larger screens */}
+          <div className="relative w-full max-w-xl"> {/* max-w-xl or similar for ~half width */}
+            <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <Input
-              className="pl-10 w-64 h-9 bg-[#F7F7F7] border-[#EBEBEA] focus:border-[#2383E2] focus:ring-[#2383E2] rounded"
-              placeholder="Поиск"
+              className="pl-10 w-full h-9 bg-gray-100 border-gray-300 focus:border-blue-500 focus:ring-blue-500 rounded-md"
+              placeholder="Поиск..."
             />
           </div>
+        </div>
 
-          <div className="flex items-center gap-2">
-            <Avatar className="h-8 w-8 border border-[#EBEBEA]">
-              <AvatarImage src="/placeholder.svg?height=32&width=32" alt="User avatar" />
-              <AvatarFallback className="bg-[#2383E2] text-white">ИС</AvatarFallback>
+        {/* Right Section: Icons and User Profile */}
+        <div className="flex items-center space-x-3"> {/* Reduced space-x-4 to space-x-3 or 2 if needed */}
+          <Button variant="ghost" size="icon" className="text-gray-600 hover:bg-gray-100 rounded-md">
+            <HelpCircle className="h-5 w-5" />
+          </Button>
+          <Button variant="ghost" size="icon" className="text-gray-600 hover:bg-gray-100 rounded-md">
+            <Bell className="h-5 w-5" />
+            {/* Optional: Add a notification badge here */}
+          </Button>
+          
+          <div className="flex items-center space-x-2">
+            <Avatar className="h-8 w-8">
+              <AvatarImage src="/placeholder-user.jpg" alt="User avatar" />
+              <AvatarFallback>ИС</AvatarFallback>
             </Avatar>
-            <span className="text-[#37352F] font-medium">Ивановский С. Ф.</span>
+            <span className="text-sm font-medium text-gray-700 hidden md:inline">Ивановский С. Ф.</span>
           </div>
+          <Button variant="ghost" size="icon" className="text-gray-600 hover:bg-gray-100 rounded-md">
+            <LogOut className="h-5 w-5" />
+          </Button>
         </div>
       </header>
 

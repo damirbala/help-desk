@@ -50,7 +50,7 @@ export function TicketRow({
   }
 
   return (
-    <Link href={`/ticket/${id}`} className="block">
+    <Link href={`/tickets/${id}`} className="block"> {/* Corrected path from /ticket/ to /tickets/ */}
       <div
         className={`grid grid-cols-5 border-b border-[#EBEBEA] text-sm hover:bg-[#F7F7F7] ${
           expanded ? "bg-[#F7F7F7]" : ""

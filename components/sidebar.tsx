@@ -9,13 +9,13 @@ export function Sidebar() {
   const pathname = usePathname()
 
   const sidebarLinks = [
-    { icon: <AlertCircle className="w-5 h-5" />, label: "Заявки", href: "/ticket" },
+    { icon: <AlertCircle className="w-5 h-5" />, label: "Заявки", href: "/tickets" },
     { icon: <User className="w-5 h-5" />, label: "Клиенты", href: "/clients" },
     // { icon: <FileText className="w-5 h-5" />, label: "Договоры", href: "#" },
-    { icon: <Grid className="w-5 h-5" />, label: "Объекты", href: "#" },
-    { icon: <Layers className="w-5 h-5" />, label: "Оборудование", href: "#" },
+    { icon: <Grid className="w-5 h-5" />, label: "Объекты", href: "/facilities" },
+    { icon: <Layers className="w-5 h-5" />, label: "Оборудование", href: "/equipments" },
     // { icon: <BookOpen className="w-5 h-5" />, label: "База знаний", href: "#" },
-    { icon: <Users className="w-5 h-5" />, label: "Сотрудники", href: "#" },
+    { icon: <Users className="w-5 h-5" />, label: "Сотрудники", href: "/employees" },
     // { icon: <BarChart2 className="w-5 h-5" />, label: "Бенчмаркинг", href: "#" },
     { icon: <PieChart className="w-5 h-5" />, label: "Отчеты", href: "#" },
   ]
